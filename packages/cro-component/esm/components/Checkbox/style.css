@@ -1,0 +1,1 @@
+.rc-checkbox{cursor:pointer}.rc-checkbox.disabled{cursor:not-allowed}.rc-checkbox.column{display:flex;align-items:center}.rc-checkbox .label-wrap .iconfont{transition:color .3s}.rc-checkbox .label-wrap:hover .iconfont{color:#1890ff!important}.rc-checkbox .label-text{color:rgba(0,0,0,.65);vertical-align:middle;font-size:16px}.rc-checkbox.column .label-text{flex:1;padding-left:5px}

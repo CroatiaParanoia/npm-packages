@@ -1,1 +1,4 @@
 node_modules
+esm
+types
+lib
