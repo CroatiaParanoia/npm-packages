@@ -5,7 +5,15 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _exportNames = {};
+var _exportNames = {
+  Icon: true
+};
+Object.defineProperty(exports, "Icon", {
+  enumerable: true,
+  get: function get() {
+    return _icon.default;
+  }
+});
 exports.default = void 0;
 
 var _icon = _interopRequireDefault(require("./icon"));

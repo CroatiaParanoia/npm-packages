@@ -1,6 +1,6 @@
 import React from 'react';
-import Checkbox from '../checkbox';
-import Radio from '../radio';
+import { Checkbox } from '../checkbox';
+import { Radio } from '../radio';
 import { Option, OutputItem, TreeProps } from './interface';
 import './style';
 

@@ -5,7 +5,15 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _exportNames = {};
+var _exportNames = {
+  Checkbox: true
+};
+Object.defineProperty(exports, "Checkbox", {
+  enumerable: true,
+  get: function get() {
+    return _checkbox.default;
+  }
+});
 exports.default = void 0;
 
 var _checkbox = _interopRequireDefault(require("./checkbox"));
