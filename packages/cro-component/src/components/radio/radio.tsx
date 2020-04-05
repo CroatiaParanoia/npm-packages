@@ -1,15 +1,9 @@
 import React from 'react';
-import { Icon } from '../Icon';
-import './style.scss';
+import Icon from '../icon';
+import { RadioProps } from './interface';
+import './style';
 
-export interface RadioProps {
-  disabled?: boolean;
-  checked?: boolean;
-  onChange?: (value: boolean) => void;
-  layout?: 'column' | 'inline';
-}
-
-export const Radio: React.FC<RadioProps> = ({
+const Radio: React.FC<RadioProps> = ({
   checked,
   disabled,
   onChange,
@@ -19,7 +13,7 @@ export const Radio: React.FC<RadioProps> = ({
   return (
     <label
       className={`rc-radio ${disabled ? 'disabled' : ''} ${layout}`}
-      onClick={() => disabled || checked || (onChange && onChange(true))}
+      onClick={() => disabled || checked || onChange?.(true)}
     >
       <Icon
         type={`${checked ? 'icon-radioactive' : 'icon-radio'}`}
@@ -31,3 +25,5 @@ export const Radio: React.FC<RadioProps> = ({
     </label>
   );
 };
+
+export default Radio;

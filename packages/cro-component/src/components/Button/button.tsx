@@ -1,15 +1,9 @@
 import React from 'react';
-import { Component } from './../../types/global';
-import './style.scss';
+import { Component } from '../../types/global';
+import { ButtonProps } from './interface';
+import './style';
 
-export interface ButtonProps {
-  disabled?: boolean;
-  type?: 'primary' | 'ghost' | 'default';
-  onClick?: () => void;
-  children?: React.ReactNode;
-}
-
-export const Button: Component<ButtonProps> = (props) => {
+const Button: Component<ButtonProps> = (props) => {
   const { type = 'default', disabled = false, onClick, children } = props;
 
   return (
@@ -22,3 +16,5 @@ export const Button: Component<ButtonProps> = (props) => {
     </button>
   );
 };
+
+export default Button;

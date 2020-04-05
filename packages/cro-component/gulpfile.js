@@ -25,7 +25,10 @@ const paths = {
 };
 
 function cssInjection(content) {
-  return content.replace(/\.scss/g, '.css');
+  return content
+    .replace(/\/style\/?'/g, "/style/css'")
+    .replace(/\/style\/?"/g, '/style/css"')
+    .replace(/\.scss/g, '.css');
 }
 
 function compileScripts(babelEnv, destDir) {
@@ -37,9 +40,11 @@ function compileScripts(babelEnv, destDir) {
     .pipe(babel())
     .pipe(
       through2.obj(function (file, encoding, next) {
-        if (file.path.match(/.js$/)) {
+        this.push(file.clone());
+        if (file.path.match(/(\/|\\)style(\/|\\)index\.js/)) {
           const content = file.contents.toString(encoding);
           file.contents = Buffer.from(cssInjection(content)); // 文件内容处理
+          // file.path = file.path.replace(/index\.js/, 'css.js'); // 文件重命名
           this.push(file); // 新增该文件
         }
         next();

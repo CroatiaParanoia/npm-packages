@@ -1,29 +1,16 @@
 import React from 'react';
-import { Checkbox } from '../Checkbox';
-import { Radio } from '../Radio';
-import './style.scss';
-
-type ShowType = 'checkbox' | 'radio';
-
-export interface Option {
-  value: string;
-  label: string;
-  showType: ShowType;
-  children?: Option[];
-}
-
-export interface TreeProps {
-  options: Option[];
-  value?: string[];
-  expandAll?: boolean;
-  onChange?: (value: OutputItem[]) => void;
-}
-
-export type OutputItem = Pick<Option, 'label' | 'value'>;
+import Checkbox from '../checkbox';
+import Radio from '../radio';
+import { Option, OutputItem, TreeProps } from './interface';
+import './style';
 
 const TOP_VALUE = 'TOP_VALUE';
 
-const getCheckboxRadioData = (parentValue = TOP_VALUE, optionArr: Option[], result: Record<string, any> = {}) => {
+const getCheckboxRadioData = (
+  parentValue = TOP_VALUE,
+  optionArr: Option[],
+  result: Record<string, any> = {}
+) => {
   optionArr.forEach((item) => {
     if (item.children) {
       // 文件夹
@@ -70,7 +57,7 @@ const optionForEach = (optionArr: Option[], cb?: (data: OutputItem) => void) => 
     if (item.children) {
       optionForEach(item.children, cb);
     } else {
-      cb && cb({ label: item.label, value: item.value });
+      cb?.({ label: item.label, value: item.value });
     }
   });
 };
@@ -86,7 +73,7 @@ const getOptionItemsByValue = (valueArr: string[], optionArr: Option[]) => {
   return resultArr;
 };
 
-export const Tree: React.FC<TreeProps> = ({ value = [], options, onChange, expandAll = false }) => {
+const Tree: React.FC<TreeProps> = ({ value = [], options, onChange, expandAll = false }) => {
   const [inputText, setInputText] = React.useState('');
 
   const normaOpenValue = React.useMemo(() => {
@@ -111,7 +98,8 @@ export const Tree: React.FC<TreeProps> = ({ value = [], options, onChange, expan
     [openValue, setOpenValue]
   );
 
-  const onSelectboxChange = React.useCallback(
+  const onSelectBoxChange = React.useCallback(
+    // eslint-disable-next-line max-params
     (checked: boolean, itemValue: string, parentValue: string, showType: Option['showType']) => {
       let newValue: string[] = [];
       if (checked) {
@@ -126,41 +114,40 @@ export const Tree: React.FC<TreeProps> = ({ value = [], options, onChange, expan
       } else {
         newValue = value.filter((v) => v !== itemValue);
       }
-
-      onChange && onChange(getOptionItemsByValue(newValue, options));
+      onChange?.(getOptionItemsByValue(newValue, options));
     },
     [value, options, folderRelation]
   );
 
   const renderSelectBoxGroup = React.useCallback(
-    (parentValue: string, optionItme: Omit<Option, 'children'>) => {
-      let showType = optionItme && optionItme.showType;
+    (parentValue: string, optionItem: Omit<Option, 'children'>) => {
+      let showType = optionItem?.showType;
       if (!showType) {
         return;
       }
 
-      if (!optionItme.label.includes(inputText)) {
+      if (!optionItem.label.includes(inputText)) {
         return;
       }
 
-      const Selectbox = showType === 'checkbox' ? Checkbox : Radio;
+      const SelectBox = showType === 'checkbox' ? Checkbox : Radio;
 
       return (
-        <div key={optionItme.value} className="option-item">
-          <Selectbox
-            checked={value.includes(optionItme.value)}
+        <div key={optionItem.value} className="option-item">
+          <SelectBox
+            checked={value.includes(optionItem.value)}
             layout="column"
             onChange={(checked) =>
-              onSelectboxChange(
+              onSelectBoxChange(
                 checked,
-                optionItme.value,
+                optionItem.value,
                 parentValue,
                 showType as Option['showType']
               )
             }
           >
-            {optionItme.label}
-          </Selectbox>
+            {optionItem.label}
+          </SelectBox>
         </div>
       );
     },
@@ -210,3 +197,5 @@ export const Tree: React.FC<TreeProps> = ({ value = [], options, onChange, expan
     </div>
   );
 };
+
+export default Tree;

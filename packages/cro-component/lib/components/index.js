@@ -4,74 +4,74 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Button = require("./Button");
+var _button = require("./button");
 
-Object.keys(_Button).forEach(function (key) {
+Object.keys(_button).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _Button[key];
+      return _button[key];
     }
   });
 });
 
-var _Checkbox = require("./Checkbox");
+var _checkbox = require("./checkbox");
 
-Object.keys(_Checkbox).forEach(function (key) {
+Object.keys(_checkbox).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _Checkbox[key];
+      return _checkbox[key];
     }
   });
 });
 
-var _Icon = require("./Icon");
+var _icon = require("./icon");
 
-Object.keys(_Icon).forEach(function (key) {
+Object.keys(_icon).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _Icon[key];
+      return _icon[key];
     }
   });
 });
 
-var _Radio = require("./Radio");
+var _radio = require("./radio");
 
-Object.keys(_Radio).forEach(function (key) {
+Object.keys(_radio).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _Radio[key];
+      return _radio[key];
     }
   });
 });
 
-var _Rate = require("./Rate");
+var _rate = require("./rate");
 
-Object.keys(_Rate).forEach(function (key) {
+Object.keys(_rate).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _Rate[key];
+      return _rate[key];
     }
   });
 });
 
-var _Tree = require("./Tree");
+var _tree = require("./tree");
 
-Object.keys(_Tree).forEach(function (key) {
+Object.keys(_tree).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _Tree[key];
+      return _tree[key];
     }
   });
 });

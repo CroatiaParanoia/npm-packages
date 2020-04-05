@@ -11,9 +11,14 @@
     "react-dom": "^16.13.1"
   },
   "main": "lib/index.js",
-  "types": "types/src/index.d.ts",
+  "types": "types/index.d.ts",
   "module": "esm/index.js",
-  "typings": "types/src/index.d.ts",
+  "typings": "types/index.d.ts",
+  "sideEffects": [
+    "esm/**/style/*.css",
+    "lib/**/style/*.css",
+    "*.scss"
+  ],
   "scripts": {
     "build:types": "tsc --emitDeclarationOnly",
     "watch": "gulp watch",

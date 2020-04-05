@@ -5,24 +5,22 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Button = void 0;
+var _exportNames = {};
+exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _button = _interopRequireDefault(require("./button"));
 
-require("./style.css");
+var _interface = require("./interface");
 
-var Button = function Button(props) {
-  var _props$type = props.type,
-      type = _props$type === void 0 ? 'default' : _props$type,
-      _props$disabled = props.disabled,
-      disabled = _props$disabled === void 0 ? false : _props$disabled,
-      onClick = props.onClick,
-      children = props.children;
-  return /*#__PURE__*/_react.default.createElement("button", {
-    disabled: disabled,
-    onClick: onClick,
-    className: "button-base ".concat(disabled ? 'disabled' : type)
-  }, children);
-};
-
-exports.Button = Button;
+Object.keys(_interface).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _interface[key];
+    }
+  });
+});
+var _default = _button.default;
+exports.default = _default;

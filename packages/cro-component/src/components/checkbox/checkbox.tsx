@@ -1,15 +1,9 @@
 import React from 'react';
-import { Icon } from '../Icon';
-import './style.scss';
+import Icon from '../icon';
+import { CheckboxProps } from './interface';
+import './style';
 
-export interface CheckboxProps {
-  disabled?: boolean;
-  checked?: boolean;
-  onChange?: (value: boolean) => void;
-  layout?: 'column' | 'inline';
-}
-
-export const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   checked,
   disabled,
   onChange,
@@ -19,7 +13,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   return (
     <label
       className={`rc-checkbox ${disabled ? 'disabled' : ''} ${layout}`}
-      onClick={() => disabled || (onChange && onChange(!checked))}
+      onClick={() => disabled || onChange?.(!checked)}
     >
       <Icon
         type={`${checked ? 'icon-check-box' : 'icon-checkboxoutlineblank'}`}
@@ -31,3 +25,5 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     </label>
   );
 };
+
+export default Checkbox;

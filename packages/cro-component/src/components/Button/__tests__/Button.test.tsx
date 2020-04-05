@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../index';
+import Button from '../index';
 import { render, fireEvent } from '@testing-library/react';
 
 describe('Button', () => {
