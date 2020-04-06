@@ -1,9 +1,10 @@
 import React from 'react';
 import { Icon } from '../icon';
+import { Component } from '../../types/global';
 import { CheckboxProps } from './interface';
 import './style';
 
-const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox: Component<CheckboxProps> = ({
   checked,
   disabled,
   onChange,
@@ -24,6 +25,20 @@ const Checkbox: React.FC<CheckboxProps> = ({
       <span className="label-text">{children}</span>
     </label>
   );
+};
+
+Checkbox.schema = {
+  title: 'Checkbox',
+  type: 'object',
+  properties: {
+    input: {
+      type: 'object',
+      properties: {
+        disabled: { type: 'boolean', default: false, title: '是否禁用' },
+        checked: { type: 'boolean', default: false, title: '是否选中' }
+      }
+    }
+  }
 };
 
 export default Checkbox;

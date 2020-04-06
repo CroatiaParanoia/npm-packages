@@ -1,0 +1,31 @@
+[
+  {
+    "server": "free2.cdn.globalnetworktraffic.com",
+    "local_address": "127.0.0.1",
+    "local_port": 1080,
+    "timeout": 300,
+    "workers": 1,
+    "server_port": 1099,
+    "password": "di15PV",
+    "method": "aes-256-cfb",
+    "obfs": "tls1.2_ticket_auth",
+    "obfs_param": "0ce8a110295.www.gov.hk",
+    "protocol": "auth_aes128_md5",
+    "protocol_param": "110295:vH5Gj7"
+  },
+  {
+    "server": "free3.cdn.globalnetworktraffic.com",
+    "local_address": "127.0.0.1",
+    "local_port": 1080,
+    "timeout": 300,
+    "workers": 1,
+    "server_port": 1099,
+    "password": "di15PV",
+    "method": "aes-256-cfb",
+    "obfs": "tls1.2_ticket_auth",
+    "obfs_param": "0ce8a110295.www.gov.hk",
+    "protocol": "auth_aes128_md5",
+    "protocol_param": "110295:vH5Gj7"
+  },
+  "vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIkJXRy01MDAtMTczIiwNCiAgImFkZCI6ICIxNzMuMjQyLjExOC4xOTIiLA0KICAicG9ydCI6ICIyNTQzMiIsDQogICJpZCI6ICIwNGQ1MWYyNS0wNTI5LWExZGItZTk4ZS1jNjRiMzZmZmJiODEiLA0KICAiYWlkIjogIjIyMyIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIiIsDQogICJ0bHMiOiAiIg0KfQ=="
+]

@@ -27,3 +27,4 @@ dist
 esm
 types
 coverage
+storybook-static

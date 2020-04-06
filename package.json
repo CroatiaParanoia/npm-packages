@@ -2,11 +2,14 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "postinstall": "lerna clean && lerna bootstrap",
+    "postinstall": "lerna bootstrap --no-progress",
     "dev": "lerna run watch --scope=cro-component",
     "build": "lerna run build --scope=cro-component",
-    "storybook": "lerna run storybook --scope=cro-component"
+    "storybook": "lerna run storybook --scope=cro-component",
+    "storybook:build": "lerna run storybook:build --scope=cro-component",
+    "ci": "npm i && npm rebuild node-sass && npm run storybook:build"
   },
+  "homepage": "https://croatiaparanoia.github.io/npm-projects",
   "devDependencies": {
     "@babel/polyfill": "^7.8.7",
     "@types/json-schema": "^7.0.4",

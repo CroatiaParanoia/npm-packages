@@ -1,6 +1,5 @@
 export interface ButtonProps {
   disabled?: boolean;
-  type?: 'primary' | 'ghost' | 'default';
+  type?: 'primary' | 'default';
   onClick?: () => void;
-  children?: React.ReactNode;
 }

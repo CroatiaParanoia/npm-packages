@@ -17,4 +17,18 @@ const Button: Component<ButtonProps> = (props) => {
   );
 };
 
+Button.schema = {
+  title: 'Button',
+  type: 'object',
+  properties: {
+    input: {
+      type: 'object',
+      properties: {
+        disabled: { type: 'boolean', default: false, title: '是否禁用' },
+        type: { enum: ['default', 'primary', 'ghost'], default: 'default', title: '按钮样式' }
+      }
+    }
+  }
+};
+
 export default Button;
